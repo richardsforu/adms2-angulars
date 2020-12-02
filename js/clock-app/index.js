@@ -5,7 +5,7 @@ let usClock = document.querySelector('#usClock');
 
 
 
-let jsClock = (props) => {
+let jsClock = (props) => { // ES6
 
     let date = new Date().toLocaleTimeString('en-US',{timeZone:props});
 
@@ -13,7 +13,6 @@ let jsClock = (props) => {
     <div>${props}</div>
     <p> ${date} </p>
     `
-
     return ui;
 }
 
