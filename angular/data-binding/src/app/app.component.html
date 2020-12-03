@@ -1,0 +1,67 @@
+<div class="container">
+
+  <div class="alert alert-info text-center"><h2>Data Binding</h2></div>
+
+  <hr/>
+
+  <div class="card">
+    <div class="card-header">Bindings</div>
+    <div class="card-body">
+      <h2>Data Binding Types</h2>
+      
+      <hr/>
+
+      <ul class="list-group">
+          <li class="list-group-item">Property Binding - [ ]</li>
+          <li class="list-group-item">Event Binding - ( )</li>
+          <li class="list-group-item">Two way Binding - [(ngModel)]</li>         
+      </ul>
+      <hr/>
+      
+      <h3>Hidden Directives Value: {{hideDirectives}}</h3>
+
+      <button class="btn btn-primary" (click)="changeStatus()">Hide/Unhide This Div</button>
+      <div [hidden]=hideDirectives>
+        <h2>Directives</h2> <hr/>
+        <ul class="list-group">
+          <li class="list-group-item">Component Directives</li>
+          <li class="list-group-item">Structutal Directives</li>
+      </ul>
+      </div>
+
+      <hr/>
+      <h2>User name: {{userName}}</h2>
+      <h2>Two Way Binding</h2>
+      <input type="text" [(ngModel)]=userName  placeholder="User Name"> <br/>
+
+      <hr/>
+      <div [align]=alignment>
+          <h2>Data</h2>
+      </div>
+
+      <hr/>
+      <div>
+        <input type="text"  placeholder="User Name"> <br/>
+        <span [hidden]=uservalidateMessage class="text-danger">Your Name Must be Provided...</span>
+      </div>
+      
+
+      <hr/>
+
+      <button (click)=sayHello()>Say Hello</button>
+      <button (mouseenter)=sayHello()>Say Hello</button>
+
+      <hr/>
+
+      <input type="text" (keyup)="sayHello()"  placeholder="First name"> <br/>
+
+
+      
+
+
+
+
+    </div>
+  </div>
+
+</div>

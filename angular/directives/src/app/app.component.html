@@ -1,0 +1,46 @@
+<div class="container">
+
+  <div class="alert alert-info text-center">
+    <h2>Directives Demo</h2>
+  </div>
+
+  <hr />
+
+  <h3>Directives Types</h3>
+  <hr />
+  <div class="list-group col-4">
+    <li class="list-group-item">Structutal Directives : *ngIf, *ngFor </li>
+    <li class="list-group-item">Attribute Directives </li>
+  </div>
+
+  <hr />
+
+  <div *ngIf="isMarried">
+    <input type="text" placeholder="Number of Children">
+  </div>
+
+  <hr />
+
+  <div>
+    <li *ngFor="let day of days" class="list-group-item col-4">
+      <span class="text-danger" *ngIf="(day=='Saturday' || day=='Sunday'); else weekDays"> Weekend : {{day}} </span>
+      <ng-template #weekDays>
+        <span class="text-success"> Weekday: {{day}}</span>
+      </ng-template>
+    </li>
+  </div>
+
+
+  <hr/>
+<h2>Clicked: {{isClicked}}</h2>
+  <button (click)="changeColor()">Click Here</button>
+<div style="color:red">
+    <h1> Data to be displayed </h1>
+  </div>
+
+
+
+
+
+
+</div>
