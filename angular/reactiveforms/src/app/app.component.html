@@ -1,0 +1,54 @@
+<div class="container">
+
+  <h1>Reactive Forms in Angular...</h1>
+  <hr />
+
+  
+
+  <div class="col-6">
+    <form  [formGroup]="regForm" (ngSubmit)=registerUser()>
+      <div class="form-group">
+        <label for="">First Name</label>
+        <input class="form-control" formControlName="firstName"   name="firstName">
+        <span class="text-danger" *ngIf=" isSubmited && fc.firstName.errors">
+          First Name is required
+      </span>
+      </div>
+     
+      <div class="form-group">
+        <label for="">Last Name</label>
+        <input class="form-control" formControlName="lastName"   name="lastName">
+        <span class="text-danger" *ngIf=" isSubmited && fc.lastName.errors">
+          Last Name is required
+      </span>
+      </div>
+
+      <div class="form-group">
+        <label for="">Email Address</label>
+        <input class="form-control" formControlName="emailAddress" name="emailAddress"> 
+        <span class="text-danger" *ngIf=" isSubmited && fc.emailAddress.errors">
+          Email Address is required
+      </span>
+      </div>
+
+      <div class="form-group">
+        <label for="">Mobile Number</label>
+        <input class="form-control" formControlName="mobileNumber"   name="mobileNumber">
+        <span class="text-danger" *ngIf=" isSubmited && fc.mobileNumber.errors">
+          Mobile Number is required
+      </span>
+      </div>
+
+      <div class="text-center form-group">
+        <button  class="btn btn-primary" style="margin:5px">Save</button>
+        <button class="btn btn-warning">Cancel</button>
+
+      </div>
+
+     
+    </form>
+
+  </div>
+
+
+</div>

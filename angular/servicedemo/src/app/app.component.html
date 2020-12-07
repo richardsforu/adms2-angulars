@@ -1,0 +1,27 @@
+<div class="container">
+
+  <h1>Product class</h1>
+
+  <button (click)="getProduct()">Display</button>
+  <hr/>
+  <div *ngIf="prod">
+    
+    
+    <table class="table table-hovered">
+      <tbody>
+        <tr *ngFor="let product of prods">
+          <td>
+            <img [src]=product.imgUrl height="200px" width="200px">
+          </td>
+          <td text-align="center">{{product.id}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.price}}</td>
+          
+
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
