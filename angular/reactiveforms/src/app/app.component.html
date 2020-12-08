@@ -3,49 +3,90 @@
   <h1>Reactive Forms in Angular...</h1>
   <hr />
 
-  
-
   <div class="col-6">
-    <form  [formGroup]="regForm" (ngSubmit)=registerUser()>
+    <form novalidate [formGroup]="regForm" (ngSubmit)=registerUser()>
       <div class="form-group">
         <label for="">First Name</label>
-        <input class="form-control" formControlName="firstName"   name="firstName">
-        <span class="text-danger" *ngIf=" isSubmited && fc.firstName.errors">
+        <input class="form-control" formControlName="firstName" name="firstName">
+        <span class="text-danger" *ngIf="isSubmited && fc.firstName.errors?.required">
           First Name is required
-      </span>
+        </span>
+
+        <span class="text-danger" *ngIf="isSubmited && fc.firstName.errors?.minlength">
+          First Name length minimum 3 characters
+        </span>
       </div>
-     
+
       <div class="form-group">
         <label for="">Last Name</label>
-        <input class="form-control" formControlName="lastName"   name="lastName">
-        <span class="text-danger" *ngIf=" isSubmited && fc.lastName.errors">
+        <input class="form-control" formControlName="lastName" name="lastName">
+        <span class="text-danger" *ngIf="isSubmited && fc.lastName.errors?.required">
           Last Name is required
-      </span>
+        </span>
       </div>
 
       <div class="form-group">
         <label for="">Email Address</label>
-        <input class="form-control" formControlName="emailAddress" name="emailAddress"> 
-        <span class="text-danger" *ngIf=" isSubmited && fc.emailAddress.errors">
+        <input class="form-control" formControlName="emailAddress" name="emailAddress">
+        <span class="text-danger" *ngIf=" isSubmited && fc.emailAddress.errors?.required">
           Email Address is required
-      </span>
+        </span>
+
+        <span class="text-danger" *ngIf=" isSubmited && fc.emailAddress.errors?.email">
+          Invalid Email Address
+        </span>
+
       </div>
 
       <div class="form-group">
         <label for="">Mobile Number</label>
-        <input class="form-control" formControlName="mobileNumber"   name="mobileNumber">
-        <span class="text-danger" *ngIf=" isSubmited && fc.mobileNumber.errors">
+        <input class="form-control" formControlName="mobileNumber" name="mobileNumber">
+        <span class="text-danger" *ngIf=" isSubmited && fc.mobileNumber.errors?.required">
           Mobile Number is required
-      </span>
+        </span>
+        <span class="text-danger" *ngIf=" isSubmited && fc.mobileNumber.errors?.minlength">
+          Mobile Number should be minimum 10 digits long
+        </span>
+        <span class="text-danger" *ngIf=" isSubmited && fc.mobileNumber.errors?.maxlength">
+          Mobile Number size can not be more than 10 digits long
+        </span>
+        <span class="text-danger" *ngIf=" isSubmited && fc.mobileNumber.errors?.pattern">
+          Mobile Number should contains only numbers
+        </span>
       </div>
 
+      <div class="form-group">
+        <label for="">Pincodse</label>
+        <input class="form-control" formControlName="pinCode" name="pinCode">
+        <span class="text-danger" *ngIf=" isSubmited && fc.pinCode.errors?.required">
+          Pincode is required
+        </span>
+        <span class="text-danger" *ngIf=" isSubmited && fc.pinCode.errors?.pattern">
+          Invalid pincode number.
+        </span>
+      </div>
+
+
+      <div class="form-group">
+        <label for="">Test email</label>
+        <input class="form-control" formControlName="testEmail" name="testEmail">
+        <span class="text-danger" *ngIf=" isSubmited && fc.testEmail.errors?.required">
+          INvalid Email
+        </span>
+        <span class="text-danger" *ngIf=" isSubmited && fc.testEmail.errors?.validateEmail">
+          Custom Validation Message
+        </span>
+      </div>
+
+
+
       <div class="text-center form-group">
-        <button  class="btn btn-primary" style="margin:5px">Save</button>
+        <button class="btn btn-primary" style="margin:5px">Save</button>
         <button class="btn btn-warning">Cancel</button>
 
       </div>
 
-     
+
     </form>
 
   </div>
