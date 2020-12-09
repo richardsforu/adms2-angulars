@@ -18,8 +18,6 @@ export class ProductsComponent implements OnInit {
     this.router.navigate(['/product', product.id])
   }
   ngOnInit(): void {
-    this.products = this.ps.findAll();
-   
-    
+    this.ps.findAll().subscribe(response => this.products=response);
   }
 }

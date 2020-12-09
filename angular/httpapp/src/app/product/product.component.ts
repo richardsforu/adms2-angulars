@@ -11,21 +11,17 @@ export class ProductComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, private ps: ProductService) { }
 
-  product={};
+  product:any;
   public id;
 
   ngOnInit(): void {
     // old approach
     //let id = this.router.snapshot.paramMap.get('id');
-
     // paramMap available from angular 4 and above
-    this.router.paramMap.subscribe(params=>{
-     this.id= params.get('id');
+    this.router.paramMap.subscribe(params => {
+      this.id = params.get('id');
+      this.ps.findProduct(this.id).subscribe(response => this.product = response);
+
     })
-
-    this.product = this.ps.findProduct(this.id);
-    console.log(this.product);
-
-
   }
 }
