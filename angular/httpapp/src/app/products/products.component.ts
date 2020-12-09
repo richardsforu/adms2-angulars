@@ -9,20 +9,17 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
 
+ 
   constructor(private router: Router, private ps: ProductService) { }
 
-  products:any;
+  products:any=[]
 
   onSelect(product) {
     this.router.navigate(['/product', product.id])
   }
-
   ngOnInit(): void {
-    console.log(">>>>>>> Test <<<<<<<<");
     this.products = this.ps.findAll();
-    console.log(">>>>>>>");
-    console.log(this.ps.findAll());
+   
     
   }
-
 }

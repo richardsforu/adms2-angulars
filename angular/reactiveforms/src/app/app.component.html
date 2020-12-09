@@ -4,7 +4,7 @@
   <hr />
 
   <div class="col-6">
-    <form novalidate [formGroup]="regForm" (ngSubmit)=registerUser()>
+    <form novalidate [formGroup]="regForm" (ngSubmit)=registerUser() autocomplete="disabled">
       <div class="form-group">
         <label for="">First Name</label>
         <input class="form-control" formControlName="firstName" name="firstName">
@@ -68,13 +68,14 @@
 
 
       <div class="form-group">
-        <label for="">Test email</label>
-        <input class="form-control" formControlName="testEmail" name="testEmail">
-        <span class="text-danger" *ngIf=" isSubmited && fc.testEmail.errors?.required">
-          INvalid Email
+        <label for="">Password</label>
+        <input class="form-control" formControlName="password" name="password">
+        <span class="text-danger" *ngIf=" isSubmited && fc.password.errors?.required">
+         Password Required
         </span>
-        <span class="text-danger" *ngIf=" isSubmited && fc.testEmail.errors?.validateEmail">
-          Custom Validation Message
+        <span class="text-danger" *ngIf=" isSubmited && fc.password.errors?.invalidPassword">
+          Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase    
+                                letter and 1 number
         </span>
       </div>
 

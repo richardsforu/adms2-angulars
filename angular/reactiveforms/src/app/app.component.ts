@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomValidationService } from './custom-validation.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit {
   regForm: FormGroup;
   isSubmited = false;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private customValidator:CustomValidationService) {
 
   }
 
@@ -40,7 +41,7 @@ export class AppComponent implements OnInit {
         emailAddress: ['', [Validators.required, Validators.email]],
         mobileNumber: ['', [Validators.required,Validators.minLength(10),Validators.maxLength(10),Validators.pattern('[1-9][0-9]{9}')]],
         pinCode: ['', [Validators.required, Validators.pattern('[1-9][0-9]{5}')]],
-        testEmail:  ['', [Validators.required,this.validateEmail]]
+        password:  ['', [Validators.required,this.customValidator.patternValidator()]]
 
       }
     )
