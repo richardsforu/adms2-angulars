@@ -10,7 +10,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   products: any = [];
-  product:any;
+  product: any;
 
   httpBaseUrl = 'http://localhost:8080/api';
   findProduct(id) {
@@ -22,7 +22,11 @@ export class ProductService {
   }
 
   addProduct(product) {
-    // this.products.push(product);
+    return this.http.post(this.httpBaseUrl + '/products',  product);
+  }
+
+  removeProduct(id){
+    return this.http.delete(this.httpBaseUrl + `/products/${id}`)
   }
 
 

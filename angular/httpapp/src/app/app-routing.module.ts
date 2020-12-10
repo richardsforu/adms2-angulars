@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'products', component: ProductsComponent },
-  { path: 'form', component: ProductFormComponent }
+  { path: 'form', component: ProductFormComponent },
+  { path: 'form/:id', component: ProductFormComponent }
 
 ];
 

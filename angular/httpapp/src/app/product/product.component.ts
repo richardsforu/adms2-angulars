@@ -10,8 +10,7 @@ import { ProductService } from '../product.service';
 export class ProductComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, private ps: ProductService) { }
-
-  product:any;
+  product: any;
   public id;
 
   ngOnInit(): void {
@@ -21,7 +20,6 @@ export class ProductComponent implements OnInit {
     this.router.paramMap.subscribe(params => {
       this.id = params.get('id');
       this.ps.findProduct(this.id).subscribe(response => this.product = response);
-
     })
   }
 }

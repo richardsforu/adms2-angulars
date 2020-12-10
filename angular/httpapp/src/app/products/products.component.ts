@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
 
@@ -9,15 +9,28 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
 
- 
+
   constructor(private router: Router, private ps: ProductService) { }
 
-  products:any=[]
+  products: any = []
+
+
+
+  editProduct(product) {
+    this.router.navigate(['/form', product.id]);
+  }
+  deleteProduct(id) { 
+    this.ps.removeProduct(id).subscribe(response=>{})
+    this.router.navigate(['']);
+
+  }
 
   onSelect(product) {
     this.router.navigate(['/product', product.id])
   }
   ngOnInit(): void {
-    this.ps.findAll().subscribe(response => this.products=response);
+
+    this.ps.findAll().subscribe(response => this.products = response);
+
   }
 }
